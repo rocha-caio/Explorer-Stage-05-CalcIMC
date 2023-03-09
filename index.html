@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en, pt-br">
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcule o seu IMC</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- O atributo defer, define que antes de carregar o arquivo script, é necessário que o browser renderize todo o documento HTML -->
+  <script src="./js/script.js" type="module"></script>
+
+  <!-- Colocamos o type="module", para habilitamos as funções do ES6, como as imports  -->
+</head>
+
+<body>
+
+
+  <div class="alert-error">
+    Digite somente números!
+  </div>
+
+
+
+  <div class="container">
+    <main class="card">
+      <form>
+        <h1 class="title">Cálculo de IMC</h1>
+
+        <div class="input-wrapper">
+          <label for="weight">Peso (kg)</label>
+
+          <input type="text" id="weight"
+                 placeholder="70"
+          />
+        </div>
+
+        <div class="input-wrapper">
+          <label for="height">Altura (cm)</label>
+
+          <input type="text" id="height"
+                 placeholder="170"
+          />
+        </div>
+
+      <!-- Um botão, dentro do formulário, automaticamente é o botão de Submit -->
+      <button type="submit">Calcular IMC
+        <img src="./assets/arrow.svg" alt="Seta apontado para a direita">
+      </button>
+      </form>
+    </main>
+  </div>
+
+
+  <div class="modal-wrapper">
+    <div class="modal card">
+
+      <h2 class="title">
+        <button class="close">
+          <img src="./assets/close.svg" alt="Imagem Para Fechar o Popup">
+        </button>
+
+        <span>Seu IMC é de 28</span>
+      </h2>
+    </div>
+  </div>
+</body>
+
+</html>

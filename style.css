@@ -1,0 +1,226 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box
+}
+
+:root {
+    font-size: 62.5%;
+    /* Não se aplica nas tags: button, input
+      é necessário declarar.
+    */
+
+
+  /* Fonts */
+  --ff-texting: 'Roboto', sans-serif;
+
+  /* Colors */
+  --tt-heading: hsl(194, 68%, 15%);
+  --tt-label: hsl(170, 100%, 14%);
+  --tt-input: hsl(210, 11%, 15%);
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+  --tt-button: hsl(0, 0%, 100%);
+  --tt-error: hsl(0, 0%, 100%);
+  --ol-input: hsl(194, 97%, 31%);
+  --bd-input: rgba(73, 80, 87, 0.3);
+  --bg-button: hsl(194, 97%, 31%);
+  --bg-button-hover: hsl(194, 94%, 21%);
+  --bg-error: hsl(0, 86%, 59%);
+  --bg-input: hsl(212, 23%, 89%);
+}
+
+body {
+  background-color: hsl(229deg, 78%, 7%);
+  font-family: var(--ff-texting);
+}
+
+/* Declaração*/
+
+body,
+input,
+button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+/* Centralizando um elemento com o Display Grid e o Place-content
+-> Ideal quando exister apenas um elemento dentro da caixa main
+*/
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  max-width: 42.8rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+  background: hsl(0deg, 0%, 100%);
+  margin-inline: auto;
+
+  /* Colocando uma sobra no cartão */
+  box-shadow: 0 .2rem .4rem rgb(0, 0, 0, 0.1);
+  border-radius: .6rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  color: var(--tt-heading);
+}
+
+
+form {
+  width: 30rem;
+}
+
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form label {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--tt-label);
+  margin-bottom: .8rem;
+}
+
+
+form input {
+  width: 100%;
+  border: 1px solid var(--bd-input);
+  background: var(--bg-input);
+  padding: 1.6rem;
+  border-radius: .4rem;
+}
+
+
+form input:focus {
+  outline: 2px solid var(--ol-input);
+}
+
+
+form input::placeholder {
+  color: var(--tt-placeholder);
+}
+
+
+
+/* Leia da direita para esquerda:
+  Aplica em um .input-wrapper que anterior a ele tenha outro .input-wrapper.
+    - No caso, aplica no item2;
+      - item1 + item2;
+*/
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+
+  width: 100%;
+
+  border-radius: .4rem;
+  border: none;
+  background-color: var(--bg-button);
+  color: var(--tt-button);
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background .3s;
+}
+
+form button:hover {
+  color: var(--bg-button-hover);
+}
+
+
+/* Modal -> Caixa Sobreposta */
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  /* top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; */
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: grid;
+  place-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.modal {
+  position: relative;
+  /* Ao utilizarmos a propriedade relative, estamos determinando que um elemento com a propriedade display absolute, irá relacionar/referir sua posição, com a posição do elemento com a propriedade relative */
+}
+
+
+.modal button {
+
+  background: none;
+  border: none;
+
+  position: absolute;
+
+  top: 1.6rem;
+  right: 1.6rem;
+
+  cursor: pointer;
+
+  transition: transform .3s;
+}
+
+.model button:hover {
+  transform: scale(1.1);
+}
+
+/* Seleciona todo elemento que tem ambas as classes como atributo */
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+
+  background-color: var(--bg-error);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  color: var(--tt-error);
+  font-weight: bold;
+
+  padding: .8rem 0rem;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transform: transform .5s;
+}
